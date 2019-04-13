@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Image, StyleSheet, ScrollView, TextInput} from 'react-native'
 import {Divider, Button, Block, Text, Switch} from '../components';
 import {theme, mocks} from '../constants';
-import { CircularProgress } from 'react-native-circular-progress';
+import FundsStatus from "../components/FundsStatus";
 
 class Settings extends Component {
     state = {
@@ -31,9 +31,11 @@ class Settings extends Component {
         const {editing} = this.state;
         this.setState({editing: !editing ? name : null});
     }
-    Capitalize(str){
+
+    Capitalize(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
+
     renderEdit(name) {
         const {account, editing} = this.state;
 
@@ -47,10 +49,11 @@ class Settings extends Component {
             )
         }
 
-        return <Text bold>{"Please enter the "+this.Capitalize(name)    }</Text>
+        return <Text bold>{"Please enter the " + this.Capitalize(name)}</Text>
     }
 
-    render() {
+    render = () => {
+
         const {account, editing} = this.state;
 
         return (
@@ -58,26 +61,7 @@ class Settings extends Component {
                 <Block flex={false} row center space="between" style={styles.header}>
                     <Text h1 bold>New Account</Text>
                 </Block>
-                <Block center>
-                    <CircularProgress
-                        size={214} // can use  with * .5 => 50%
-                        fill={85} // percentage
-                        lineCap="round" // line ending style
-                        rotation={220}
-                        arcSweepAngle={280}
-                        width={theme.sizes.base}
-                        tintColor={theme.colors.primary} // gradient is not supported :(
-                        backgroundColor={theme.colors.gray3}
-                        backgroundWidth={theme.sizes.base / 2}
-                    >
-                        {() => (
-                            <Block center middle>
-                                <Text h2 medium>7.2</Text>
-                                <Text h3 transform="uppercase">Fair</Text>
-                            </Block>
-                        )}
-                    </CircularProgress>
-                </Block>
+                <FundsStatus currentAmount={50} goalAmount={1450}/>
                 <Block center>
                 </Block>
                 <ScrollView showsVerticalScrollIndicator={false}>
