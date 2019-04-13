@@ -1,26 +1,26 @@
-  import React, { Component } from 'react'
-  import { View, StyleSheet, ScrollView } from 'react-native'
-  import { PercentageSlider, Block, Text } from '../components';
-  import { theme } from '../constants';
-  
-  class Invest extends Component {  
+import React, { Component } from 'react'
+import { View, StyleSheet, ScrollView } from 'react-native'
+import { PercentageSlider, Block, Text } from '../components';
+import { theme } from '../constants';
 
-    render() {
-      const { navigation } = this.props;
+class Invest extends Component {
 
-      return (
-        <Block>
-          <ScrollView showsVerticalScrollIndicator={false}>             
-            <PercentageSlider/>           
-          </ScrollView>  
-        </Block>
-      )
-    }
+  render() {
+    const { navigation } = this.props;
+
+    return (
+      <Block>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <PercentageSlider />
+        </ScrollView>
+      </Block>
+    )
   }
-  
-  export default Invest;
+}
 
-  
+export default Invest;
+
+
 const styles = StyleSheet.create({
 })
 
