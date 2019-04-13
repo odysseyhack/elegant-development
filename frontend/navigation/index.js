@@ -9,7 +9,7 @@ import Forgot from '../screens/Forgot';
 import Explore from '../screens/Explore';
 import Browse from '../screens/Browse';
 import Product from '../screens/Product';
-import Settings from '../screens/Settings';
+import NewAccount from '../screens/NewAccount';
 import Invest from '../screens/Invest';
 import { HeaderScore } from '../components'
 
@@ -22,9 +22,9 @@ const screens = createStackNavigator({
   Forgot,
   Explore,
   Browse,
+  NewAccount,
   Product,
-  Invest,
-  Settings,
+  Invest
 }, {
     defaultNavigationOptions: {
       headerStyle: {

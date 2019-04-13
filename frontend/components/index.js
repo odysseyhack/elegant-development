@@ -12,5 +12,7 @@ import FirePoints from './FirePoints';
 import Level from './Level';
 import HeaderScore from './HeaderScore';
 import InvestmentCard from './InvestmentCard';
+import SavingsGoal from "./SavingsGoal";
+import FundsStatus from './FundsStatus'
 
-export { Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch, FirePoints, Level, HeaderScore, InvestmentCard, PercentageSlider };
+export { SavingsGoal, Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch, FundsStatus, FirePoints, Level, HeaderScore, InvestmentCard, PercentageSlider };

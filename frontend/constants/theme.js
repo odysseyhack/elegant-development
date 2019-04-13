@@ -8,6 +8,7 @@ const colors = {
   white: "#FFFFFF",
   gray: "#9DA3B4",
   gray2: "#C5CCD6",
+  bar1: "#F3F6F6",
 };
 
 const sizes = {
