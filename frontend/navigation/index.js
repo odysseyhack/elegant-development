@@ -1,6 +1,6 @@
-import React from 'react';
-import { Image } from 'react-native';
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import React from "react";
+import { Image } from "react-native";
+import { createAppContainer, createStackNavigator } from "react-navigation";
 
 import Welcome from '../screens/Welcome';
 import Login from '../screens/Login';
@@ -12,20 +12,26 @@ import Product from '../screens/Product';
 import NewAccount from '../screens/NewAccount';
 import Invest from '../screens/Invest';
 import { HeaderScore } from '../components'
+import Pension from "../screens/Pension";
+import Achievements from "../screens/Achievements";
 
-import { theme } from '../constants';
+import { theme } from "../constants";
 
-const screens = createStackNavigator({
-  Welcome,
-  Login,
-  SignUp,
-  Forgot,
-  Explore,
-  Browse,
-  NewAccount,
-  Product,
-  Invest
-}, {
+const screens = createStackNavigator(
+  {
+    Welcome,
+    Login,
+    Invest,
+    SignUp,
+    Forgot,
+    Explore,
+    Browse,
+    Product,
+    NewAccount,
+    Pension,
+    Achievements
+  },
+  {
     defaultNavigationOptions: {
       headerStyle: {
         height: theme.sizes.base * 4,
