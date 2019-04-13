@@ -1,31 +1,35 @@
-
 import React, {Component} from 'react'
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import {CircularProgress} from 'react-native-circular-progress';
 import {theme} from "../constants";
-import {Block ,Text} from "./"
+import Block from './Block';
+import Text from './Text';
 
-
+/**
+ * TLDR: paste this to where ever you want.
+ * <FundsStatus currentAmount={number} goalAmount={number}/>
+ */
 export default class FundsStatus extends Component {
 
     render() {
         const {
             currentAmount,
-            goalAmount
+            goalAmount,
+            fill=currentAmount/goalAmount*100,
         } = this.props;
 
         return (
-            <Block flex={false} row center space="between">
+            <Block flex={false} row center space="between" style={styles.header}>
                 <CircularProgress
 
-                    size={214}
-                    fill={75}
+                    size={175}
+                    fill={fill}
                     lineCap="butt"
                     rotation={0}
                     width={theme.sizes.base}
                     tintColor={theme.colors.primary}
                     backgroundColor={theme.colors.bar1}
-                    backgroundWidth={theme.sizes.base / 2}
+                    backgroundWidth={theme.sizes.base}
                 >
                     {() => (
                         <Block center middle>
@@ -33,17 +37,21 @@ export default class FundsStatus extends Component {
                             <Text h3>/&euro;{goalAmount}</Text>
                         </Block>
                     )}
+
                 </CircularProgress>
             </Block>
 
         )
     }
 }
-// const styles = StyleSheet.create({
-//     shadow: {
-//         shadowColor: theme.colors.black,
-//         shadowOffset: { width: 0, height: 2 },
-//         shadowOpacity: 0.1,
-//         shadowRadius: 10
-//     }
-// });
+const styles = StyleSheet.create({
+    header: {
+        paddingHorizontal: theme.sizes.base *7,
+        paddingTop: theme.sizes.base * 2,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 5
+    }
+});
