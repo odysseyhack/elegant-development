@@ -10,6 +10,7 @@ import Explore from '../screens/Explore';
 import Browse from '../screens/Browse';
 import Product from '../screens/Product';
 import NewAccount from '../screens/NewAccount';
+import ViewAccount from '../screens/ViewAccount';
 import Invest from '../screens/Invest';
 import Pension from "../screens/Pension";
 import Achievements from "../screens/Achievements";
@@ -19,6 +20,7 @@ import { theme } from "../constants";
 
 const screens = createStackNavigator(
   {
+    ViewAccount,
     Welcome,
     Login,
     Invest,
