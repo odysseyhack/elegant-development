@@ -19,10 +19,16 @@ export default class SignUp extends Component {
         loading: false,
     };
 
+    static navigationOptions = {
+        headerRight: null
+    }
+
     handleSignUp() {
         const {navigation} = this.props;
         const {name, dateofbirth, password} = this.state;
         const errors = [];
+
+        navigation.navigate('Invest')
 
         Keyboard.dismiss();
         this.setState({loading: true});
