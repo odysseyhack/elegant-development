@@ -17,5 +17,7 @@ import IconCard from "./IconCard";
 import AdviceBlock from "./AdviceBlock";
 import FundsStatus from './FundsStatus';
 import FundCard from './FundCard';
+import AddAccountButton from './AddAccountButton';
 
-export { SavingsGoal, Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch, FundsStatus, FirePoints, Level, HeaderScore, InvestmentCard, PercentageSlider, FundCard, IconCard, AdviceBlock };
+
+export { AddAccountButton, SavingsGoal, Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch, FundsStatus, FirePoints, Level, HeaderScore, InvestmentCard, PercentageSlider, FundCard, IconCard, AdviceBlock };
