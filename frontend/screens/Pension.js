@@ -34,7 +34,7 @@ class Pension extends Component {
       <Block>
         <Block flex={false} row center space="between" style={styles.header}>
           <Text h1 bold>
-            Retirement
+            Explore
           </Text>
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -86,6 +86,10 @@ const styles = StyleSheet.create({
     marginTop: theme.sizes.base * 0.7,
     paddingHorizontal: theme.sizes.base * 2
   },
+  header: {
+    paddingHorizontal: theme.sizes.base * 2,
+    paddingBottom: theme.sizes.base * 2
+  },
   inputRow: {
     alignItems: "flex-end"
   },
@@ -103,7 +107,6 @@ const styles = StyleSheet.create({
   categories: {
     flexWrap: "wrap",
     paddingHorizontal: theme.sizes.base * 2,
-    marginBottom: theme.sizes.base * 3.5
   },
   footer: {
     position: "absolute",

@@ -1,51 +1,51 @@
-  import React, { Component } from 'react'
-  import { View, Dimensions, StyleSheet, ScrollView } from 'react-native'
-  import { SavingsGoal, Divider, Button, Block, Text } from '../components';
-  import { theme } from '../constants';
-  
-  class Invest extends Component {  
+import React, { Component } from 'react'
+import { StyleSheet, ScrollView } from 'react-native'
+import { SavingsGoal, Divider, Button, Block, Text } from '../components';
+import { theme } from '../constants';
 
-    render() {
-      const { navigation } = this.props;
+class Invest extends Component {
 
-      return (
-        <Block>
-          <ScrollView showsVerticalScrollIndicator={false}>             
+  render() {
+    const { navigation } = this.props;
+
+    return (
+      <Block>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <Block style={styles.inputs}>
-          <Text h1 bold style={marginBottom=30}>Invest</Text> 
+            <Text h1 bold style={marginBottom = 30}>Invest</Text>
             <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
               <Block>
                 <Text gray2>Budget</Text>
                 <Text>Specify Investment</Text>
               </Block>
               <Text medium secondary>
-                  Edit
-              </Text>   
+                Edit
+              </Text>
             </Block>
           </Block>
-          <Divider/>
-          
-          <SavingsGoal></SavingsGoal>
-          <SavingsGoal></SavingsGoal>
-          <SavingsGoal></SavingsGoal>
-          
-          </ScrollView>
+          <Divider />
 
-          <Block padding={[10, theme.sizes.base * 2]} bottom flex={0.6}>
-            <Button gradient onPress={() => navigation.navigate('Welcome')}>
-              <Text center semibold white>Invest</Text>
-            </Button>  
-          </Block>       
+          <SavingsGoal></SavingsGoal>
+          <SavingsGoal></SavingsGoal>
+          <SavingsGoal></SavingsGoal>
+
+        </ScrollView>
+
+        <Block padding={[10, theme.sizes.base * 2]} bottom flex={0.6}>
+          <Button gradient onPress={() => navigation.navigate('Welcome')}>
+            <Text center semibold white>Invest</Text>
+          </Button>
         </Block>
-      )
-    }
+      </Block>
+    )
   }
-  
-  export default Invest;
+}
 
-  
+export default Invest;
+
+
 const styles = StyleSheet.create({
-  
+
   inputs: {
     marginTop: theme.sizes.base * 0.7,
     paddingHorizontal: theme.sizes.base * 2,

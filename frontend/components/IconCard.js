@@ -11,15 +11,15 @@ export default class IconCard extends Component {
     return (
       <TouchableOpacity
         key={this.props.title}
-        // onPress={() => navigation.navigate("Explore", { category })}
+      // onPress={() => navigation.navigate("Explore", { category })}
       >
         <Card center middle shadow style={styles.category}>
           <Badge margin={[0, 0, 0]} size={50}>
             {this.props.locked ? (
               <Image source={this.props.image} style={{ opacity: 0.85 }} />
             ) : (
-              <Image source={this.props.image} />
-            )}
+                <Image source={this.props.image} />
+              )}
           </Badge>
           <Text medium height={20}>
             {this.props.title}
