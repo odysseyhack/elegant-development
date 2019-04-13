@@ -1,6 +1,6 @@
-import React from 'react';
-import { Image } from 'react-native';
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import React from "react";
+import { Image } from "react-native";
+import { createAppContainer, createStackNavigator } from "react-navigation";
 
 import Welcome from '../screens/Welcome';
 import Login from '../screens/Login';
@@ -11,39 +11,47 @@ import Browse from '../screens/Browse';
 import Product from '../screens/Product';
 import NewAccount from '../screens/NewAccount';
 import Invest from '../screens/Invest';
+import Pension from "../screens/Pension";
+import Achievements from "../screens/Achievements";
+import { HeaderScore } from '../components'
 
-import { theme } from '../constants';
+import { theme } from "../constants";
 
-const screens = createStackNavigator({
-  NewAccount,
-  Invest,
-  Welcome,
-  Login,
-  SignUp,
-  Forgot,
-  Explore,
-  Browse,
-  Product,
-}, {
-  defaultNavigationOptions: {
-    headerStyle: {
-      height: theme.sizes.base * 4,
-      backgroundColor: theme.colors.white, // or 'white
-      borderBottomColor: "transparent",
-      elevation: 0, // for android
-    },
-    headerBackImage: <Image source={require('../assets/icons/back.png')} />,
-    headerBackTitle: null,
-    headerLeftContainerStyle: {
-      alignItems: 'center',
-      marginLeft: theme.sizes.base * 2,
-      paddingRight: theme.sizes.base,
-    },
-    headerRightContainerStyle: {
-      alignItems: 'center',
-      paddingRight: theme.sizes.base,
-    },
-  }
-});
+const screens = createStackNavigator(
+  {
+    Welcome,
+    Login,
+    Invest,
+    SignUp,
+    Forgot,
+    Explore,
+    Browse,
+    Product,
+    NewAccount,
+    Pension,
+    Achievements
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        height: theme.sizes.base * 4,
+        backgroundColor: theme.colors.white, // or 'white
+        borderBottomColor: "transparent",
+        elevation: 0, // for android
+      },
+      headerBackImage: <Image source={require('../assets/icons/back.png')} />,
+      headerBackTitle: null,
+      headerRight: <HeaderScore points={5} level={1} />,
+      headerLeftContainerStyle: {
+        alignItems: 'center',
+        marginLeft: theme.sizes.base * 2,
+        paddingRight: theme.sizes.base,
+      },
+      headerRightContainerStyle: {
+        alignItems: 'center',
+        paddingRight: theme.sizes.base,
+      },
+    }
+  });
 
 export default createAppContainer(screens);

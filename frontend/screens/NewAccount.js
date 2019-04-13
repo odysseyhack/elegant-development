@@ -1,75 +1,75 @@
-import React, {Component} from 'react'
-import {Image, StyleSheet, ScrollView, TextInput, Alert, Keyboard} from 'react-native'
-import {Divider, Button, Block, Text, Switch} from '../components';
-import {theme, mocks} from '../constants';
-import FundsStatus from "../components/FundsStatus";
-import EditField from "../components/EditField";
+import React, { Component } from 'react'
+import { StyleSheet, ScrollView, ActivityIndicator } from 'react-native'
+import { Divider, Block, Text, FundsStatus, Button, EditField } from '../components';
+import { theme } from '../constants';
 
 class NewAccount extends Component {
     state = {
-        budget: 850,
-        monthly: 1700,
-        withdrawMoney: false,
-        changeTargetDate: true,
-        changebudgetpercentage: true,
-        editing: null,
-        account: {},
-    }
-
-
-    componentDidMount() {
-        this.setState({account: this.props.account});
-    }
-    handleSave() {
-        const {navigation} = this.props;
-        const {name, dateofbirth, password} = this.state;
-        const errors = [];
-
-        Keyboard.dismiss();
-        this.setState({loading: true});
-
-        // check with backend API or with some static data
-        if (!name) errors.push('name');
-        if (!dateofbirth) errors.push('dateofbirth');
-
-        this.setState({errors, loading: false});
-
-        if (!errors.length) {
-            Alert.alert(
-                'Success!',
-                'Your changes have been saved',
-                [
-                    {
-                        text: 'Continue',
-                        onPress: () => {
-                            navigation.navigate('Browse');
-                        },
-                    },
-                ],
-                {cancelable: false}
-            );
+        loading: false,
+        account: {
+            label: '',
+            target: '',
+            targetDate: ''
         }
     }
 
+    handleEdit = (name, text) => {
+        const { account } = this.state;
+        account[name] = text;
+
+        this.setState({ account });
+    }
+
+    onSave = () => {
+        const { label, target, targetDate } = this.state.account;
+
+        this.setState({ loading: true })
+        if (label !== "" && target !== "" && targetDate !== "") {
+            // Create new Account
+        } else {
+            // TODO: handle error
+            this.setState({ loading: false })
+        }
+    }
+
+    renderFooter() {
+        const { loading } = this.state;
+
+        return (
+            <Block center style={styles.footer}>
+                <Button onPress={() => this.onSave()} gradient style={styles.button}>
+                    {loading ? (
+                        <ActivityIndicator size="small" color="white" />
+                    ) : (
+                            <Text bold white center>
+                                Save
+                            </Text>
+                        )}
+                </Button>
+            </Block>
+        );
+    }
+
     render = () => {
+
+        const { account } = this.state;
+
         return (
             <Block>
                 <Block flex={false} row center space="between" style={styles.header}>
                     <Text h1 bold>New Account</Text>
                 </Block>
-                <FundsStatus currentAmount={261} goalAmount={1450}/>
-
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <Divider margin={[theme.sizes.base, theme.sizes.base * 2]}/>
+                    <FundsStatus currentAmount={50} goalAmount={1450} />
+
+                    <Divider margin={[theme.sizes.base, theme.sizes.base * 2]} />
                     <Block style={styles.inputs}>
-
-                        <EditField name={"label"} default_value={"Give your account a name"}/>
-                        <EditField name={"target date"} default_value={"Specify target date"}/>
-                        <EditField name={"target"} default_value={"Set target amount"}/>
+                        <EditField label="Label" value={account.label} onChangeText={val => this.handleEdit('label', val)} />
+                        <EditField label="Target" value={account.target} onChangeText={val => this.handleEdit('target', val)} />
+                        <EditField label="Target Date" value={account.targetDate} onChangeText={val => this.handleEdit('targetDate', val)} />
                     </Block>
-
-
                 </ScrollView>
+                {this.renderFooter()}
             </Block>
         )
     }
@@ -106,5 +106,21 @@ const styles = StyleSheet.create({
     },
     toggles: {
         paddingHorizontal: theme.sizes.base * 2,
+    },
+    footer: {
+        position: "absolute",
+        bottom: 0,
+        right: 0,
+        left: 0,
+        width: '100%',
+        overflow: "visible",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingBottom: theme.sizes.base * 2
+    },
+    button: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '80%'
     }
 })

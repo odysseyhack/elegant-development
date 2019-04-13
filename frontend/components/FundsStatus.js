@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import { StyleSheet } from "react-native";
-import {CircularProgress} from 'react-native-circular-progress';
-import {theme} from "../constants";
+import React, { Component } from 'react'
+import { StyleSheet, View } from "react-native";
+import { CircularProgress } from 'react-native-circular-progress';
+import { theme } from "../constants";
 import Block from './Block';
 import Text from './Text';
 
@@ -15,26 +15,26 @@ export default class FundsStatus extends Component {
         const {
             currentAmount,
             goalAmount,
-            fill=currentAmount/goalAmount*100,
+            fill = currentAmount / goalAmount * 100,
         } = this.props;
 
         return (
-            <Block flex={false} row center space="between" style={styles.header}>
+            <Block center style={styles.container}>
                 <CircularProgress
-
+                    style={styles.circular}
                     size={175}
                     fill={fill}
-                    lineCap="butt"
                     rotation={0}
+                    lineCap="round"
                     width={theme.sizes.base}
                     tintColor={theme.colors.primary}
-                    backgroundColor={theme.colors.bar1}
+                    backgroundColor='#E5E7E6'
                     backgroundWidth={theme.sizes.base}
                 >
                     {() => (
                         <Block center middle>
                             <Text h1>&euro;{currentAmount}</Text>
-                            <Text h3>/&euro;{goalAmount}</Text>
+                            <Text grey2 h3>/&euro;{goalAmount}</Text>
                         </Block>
                     )}
 
@@ -45,13 +45,17 @@ export default class FundsStatus extends Component {
     }
 }
 const styles = StyleSheet.create({
-    header: {
-        paddingHorizontal: theme.sizes.base *7,
-        paddingTop: theme.sizes.base * 2,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        elevation: 5
-    }
+    container: {
+        padding: theme.sizes.base,
+    },
+    circular: {
+        shadowColor: theme.colors.black,
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 13,
+        elevation: 7,
+        backgroundColor: theme.colors.white,
+        borderRadius: 175 / 2,
+    },
+
 });
