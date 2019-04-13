@@ -44,7 +44,7 @@ export default class SignUp extends Component {
         // DRIZZLE PARTICIPATE
         // save date of birth
 
-        navigation.navigate('Browse')
+        navigation.navigate('Funds')
     }
 
     render() {
