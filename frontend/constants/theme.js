@@ -3,10 +3,12 @@ const colors = {
   primary: "#0AC4BA",
   secondary: "#2BDA8E",
   tertiary: "#FFE358",
+  fire: "#FC6D02",
   black: "#323643",
   white: "#FFFFFF",
   gray: "#9DA3B4",
   gray2: "#C5CCD6",
+  bar1: "#F3F6F6",
 };
 
 const sizes = {
