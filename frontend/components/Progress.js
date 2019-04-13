@@ -19,14 +19,14 @@ class Progress extends Component {
       <Block
         row
         center
-        color="gray3"
+        shadow
         style={[styles.background, styles]}
         {...props}
       >
         <LinearGradient
           end={{ x: 1, y: 0 }}
-          style={[styles.overlay, { flex: value }]}
           colors={[startColor, endColor]}
+          style={[styles.overlay, { flex: value }]}
         >
           <LinearGradient
             end={{ x: 1, y: 0 }}
@@ -43,22 +43,22 @@ Progress.defaultProps = {
   startColor: "#4F8DFD",
   endColor: "#3FE4D4",
   value: 0.75,
-  opacity: 0.2
+  opacity: 1
 };
 
 export default Progress;
 
 const styles = StyleSheet.create({
   background: {
-    height: 6,
+    height: 12,
     marginVertical: 8,
-    borderRadius: 8
+    borderRadius: 15,
+    backgroundColor: "#E1E1E1"
   },
   overlay: {
-    height: 14,
-    maxHeight: 14,
-    borderRadius: 7,
-    paddingHorizontal: 4
+    height: "100%",
+    borderRadius: 15,
+    paddingHorizontal: 10,
   },
   active: {
     marginTop: 4,
