@@ -7,5 +7,6 @@ import Text from "./Text";
 import Progress from "./Progress";
 import Divider from "./Divider";
 import Switch from "./Switch";
+import SavingsGoal from "./SavingsGoal";
 
-export { Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch };
+export { SavingsGoal, Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch };
