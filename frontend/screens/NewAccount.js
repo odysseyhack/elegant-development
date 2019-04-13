@@ -5,7 +5,7 @@ import {theme, mocks} from '../constants';
 import FundsStatus from "../components/FundsStatus";
 import EditField from "../components/EditField";
 
-class Settings extends Component {
+class NewAccount extends Component {
     state = {
         budget: 850,
         monthly: 1700,
@@ -19,13 +19,6 @@ class Settings extends Component {
 
     componentDidMount() {
         this.setState({account: this.props.account});
-    }
-
-    handleEdit(name, text) {
-        const {account} = this.state;
-        account[name] = text;
-
-        this.setState({account: account});
     }
     handleSave() {
         const {navigation} = this.props;
@@ -57,31 +50,8 @@ class Settings extends Component {
             );
         }
     }
-    toggleEdit(name) {
-        const {editing} = this.state;
-        this.setState({editing: !editing ? name : null});
-    }
-
-    renderEdit(name) {
-        const {account, editing} = this.state;
-
-        if (editing === name) {
-            return (
-                <TextInput
-                    defaultValue={name}
-                    onChangeText={text => this.handleEdit([name], text)}
-
-                />
-            )
-        }
-
-        return <Text bold>{"Please enter the " + EditField.Capitalize(name)}</Text>
-    }
 
     render = () => {
-
-        const {account, editing} = this.state;
-
         return (
             <Block>
                 <Block flex={false} row center space="between" style={styles.header}>
@@ -92,7 +62,10 @@ class Settings extends Component {
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <Divider margin={[theme.sizes.base, theme.sizes.base * 2]}/>
                     <Block style={styles.inputs}>
-                    <EditField name={"label"} default_value={"Give your account a name"}/>
+
+                        <EditField name={"label"} default_value={"Give your account a name"}/>
+                        <EditField name={"target date"} default_value={"Specify target date"}/>
+                        <EditField name={"target"} default_value={"Set target amount"}/>
                     </Block>
 
 
@@ -102,7 +75,7 @@ class Settings extends Component {
     }
 }
 
-export default Settings;
+export default NewAccount;
 
 const styles = StyleSheet.create({
     header: {

@@ -9,12 +9,13 @@ import Forgot from '../screens/Forgot';
 import Explore from '../screens/Explore';
 import Browse from '../screens/Browse';
 import Product from '../screens/Product';
-import Settings from '../screens/Settings';
+import NewAccount from '../screens/NewAccount';
 import Invest from '../screens/Invest';
 
 import { theme } from '../constants';
 
 const screens = createStackNavigator({
+  NewAccount,
   Invest,
   Welcome,
   Login,
@@ -23,7 +24,6 @@ const screens = createStackNavigator({
   Explore,
   Browse,
   Product,
-  Settings,
 }, {
   defaultNavigationOptions: {
     headerStyle: {

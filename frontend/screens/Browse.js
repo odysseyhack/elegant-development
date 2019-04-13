@@ -54,7 +54,7 @@ class Browse extends Component {
       <Block>
         <Block flex={false} row center space="between" style={styles.header}>
           <Text h1 bold>Browse</Text>
-          <Button onPress={() => navigation.navigate('Settings')}>
+          <Button onPress={() => navigation.navigate('NewAccount')}>
             <Image
               source={profile.avatar}
               style={styles.avatar}

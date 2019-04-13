@@ -5,39 +5,49 @@ import Block from './Block';
 import Text from './Text';
 
 export default class EditField extends Component {
-    state = {
-        editing: null,
-        account: {},
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            editing: null,
+            new_value: '',
+        };
+    }
+
+
+    handleEdit(name, text) {
+        new_value = text;
+
+        this.setState({new_value});
+    }
+
     Capitalize(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+    toggleEdit(name) {
+        const {editing} = this.state;
+        this.setState({editing: !editing ? name : null});
+    }
+
     renderEdit(name, default_value) {
-        const {account, editing} = this.state;
+        const {new_value, editing} = this.state;
 
         if (editing === name) {
             return (
                 <TextInput
-                    defaultValue={name}
+                    defaultValue={new_value}
                     onChangeText={text => this.handleEdit([name], text)}
 
                 />
             )
         }
 
-        return <Text bold>{default_value}</Text>
+        return <Text bold>{!new_value ? default_value : new_value}</Text>
     }
 
-    handleEdit(name, text) {
-        const {account} = this.state;
-        account[name] = text;
-
-        this.setState({account: account});
-    }
 
     render() {
-        const {account, editing} = this.state;
+        const {editing} = this.state;
         const {name, default_value} = this.props;
 
         return (
