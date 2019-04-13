@@ -10,4 +10,6 @@ import Switch from "./Switch";
 import SavingsGoal from "./SavingsGoal";
 import PercentageSlider from "./PercentageSlider";
 
-export { PercentageSlider, SavingsGoal, Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch };
+import FundCard from "./FundCard";
+
+export { FundCard, PercentageSlider, SavingsGoal, Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch };
