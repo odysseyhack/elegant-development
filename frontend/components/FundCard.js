@@ -7,8 +7,8 @@ export default class FundCard extends Component {
   render() {
 
        return (
-        <Block margin={10} flex={false} style={styles.background}>
-                <Block><Text title>{this.props.title}  </Text></Block>  
+        <Block shadow margin={10} flex={false} style={styles.background}>
+                <Block ><Text title>{this.props.title}  </Text></Block>  
                 <Block><Text gray2>€{this.props.amount} </Text></Block>  
                 <Block>
                     <Progress value={this.props.progress} />
