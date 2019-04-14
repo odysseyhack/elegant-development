@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 
-import { Block, Text, Divider, FundCard } from "../components";
+import { RetireEarly, Block, Text, Divider, FundCard } from "../components";
 import { theme } from "../constants";
 
 const funds = [
@@ -25,8 +25,19 @@ const funds = [
   }
 ];
 
+state = {
+  user: {
+    name: "Henk",
+    fire: false
+  }
+};
+
 class Funds extends Component {
-  state = {};
+
+  handleRetireEarlyRequest() {
+    const { navigation } = this.props;
+    navigation.navigate('NewAccount')
+  }
 
   render() {
     const { navigation } = this.props;
@@ -40,7 +51,11 @@ class Funds extends Component {
             </Text>
           </Block>
           <Divider />
+
+         
+
           <Block padding={15}>
+          <RetireEarly points="99" onPress={ () => this.handleRetireEarlyRequest()} />
             {funds.map(fund => (
               <TouchableOpacity
                 key={fund.key}

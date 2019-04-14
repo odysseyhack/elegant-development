@@ -18,5 +18,6 @@ import AdviceBlock from "./AdviceBlock";
 import FundsStatus from './FundsStatus';
 import FundCard from './FundCard';
 import EditField from './EditField'
+import RetireEarly from './RetireEarly'
 
-export { SavingsGoal, Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch, FundsStatus, FirePoints, Level, HeaderScore, InvestmentCard, PercentageSlider, FundCard, IconCard, AdviceBlock, EditField };
+export { RetireEarly, SavingsGoal, Block, Badge, Button, Card, Input, Text, Progress, Divider, Switch, FundsStatus, FirePoints, Level, HeaderScore, InvestmentCard, PercentageSlider, FundCard, IconCard, AdviceBlock, EditField };
