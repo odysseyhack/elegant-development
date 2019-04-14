@@ -7,7 +7,8 @@ import {
   IconCard,
   AdviceBlock,
   Card,
-  Button
+  Button,
+  PercentageSlider
 } from "../components";
 import { theme } from "../constants";
 
@@ -30,12 +31,13 @@ class Pension extends Component {
 
     return (
       <Block>
-        <Block flex={false} row center space="between" style={styles.header}>
-          <Text h1 bold>
-            Retirement
-          </Text>
-        </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
+          <Block flex={false} row center space="between" style={styles.header}>
+            <Text h1 bold>
+              Retirement
+            </Text>
+          </Block>
+          <Divider />
           <Block flex={false} row space="between" style={styles.categories}>
             <IconCard
               title={`$${currentSpendable} p.m.`}
@@ -50,7 +52,6 @@ class Pension extends Component {
               subtitle={"Desired spendable \n income"}
             />
           </Block>
-          <Divider />
           <Block flex={false} row space="between" style={styles.categories}>
             <Card center middle shadow>
               <AdviceBlock
@@ -58,6 +59,22 @@ class Pension extends Component {
                 adviceAmount={`$${adviceAmount} p.m.`}
               />
             </Card>
+          </Block>
+
+          <Block>
+            <PercentageSlider
+              title="Desired retirement age"
+              subtitle={60}
+              value={60}
+              // onValueChange={}
+            />
+            <PercentageSlider
+              title="Desired income"
+              subtitle={`€${desiredSpendable} p.m.`}
+              value={desiredSpendable}
+              maxValue={10000}
+              // onValueChange={}
+            />
           </Block>
         </ScrollView>
 

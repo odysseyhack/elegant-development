@@ -27,6 +27,18 @@ class NewAccount extends Component {
     this.hideDateTimePicker();
   };
 
+  handleTargetChanged = target => {
+    const onTargetChange = this.props.navigation.getParam("onTargetChange");
+    const fund = this.props.navigation.getParam("fund");
+    onTargetChange(Number(target));
+    this.props.navigation.setParams({
+      fund: {
+        ...fund,
+        target
+      }
+    });
+  };
+
   render = () => {
     const { isDateTimePickerVisible } = this.state;
     const {
@@ -58,6 +70,12 @@ class NewAccount extends Component {
               isVisible={isDateTimePickerVisible}
               onConfirm={this.handleDatePicked}
               onCancel={this.hideDateTimePicker}
+            />
+            <EditField
+              label="Target"
+              inputType="numeric"
+              value={target.toString()}
+              onChangeText={this.handleTargetChanged}
             />
           </Block>
         </ScrollView>

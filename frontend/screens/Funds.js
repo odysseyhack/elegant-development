@@ -65,7 +65,8 @@ class Funds extends Component {
               gradient
               onPress={() =>
                 this.props.navigation.navigate("Invest", {
-                  funds: this.state.funds
+                  funds: this.state.funds,
+                  changeFunds: funds => this.setState({ funds })
                 })
               }
             >
@@ -91,6 +92,19 @@ class Funds extends Component {
                         const fund = {
                           ...this.state.funds[index],
                           targetDate: date
+                        };
+
+                        const funds = [...this.state.funds];
+                        funds[index] = fund;
+
+                        this.setState({
+                          funds
+                        });
+                      },
+                      onTargetChange: target => {
+                        const fund = {
+                          ...this.state.funds[index],
+                          target
                         };
 
                         const funds = [...this.state.funds];

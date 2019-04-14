@@ -7,20 +7,33 @@ import {
   Linking,
   AsyncStorage
 } from "react-native";
+import DateTimePicker from "react-native-modal-datetime-picker";
 
 import { Button, Block, Input, Text } from "../components";
 import { theme } from "../constants";
 
 export default class SignUp extends Component {
   state = {
-    name: null,
-    dateofbirth: null,
+    name: "",
+    dateofbirth: new Date(),
     errors: [],
-    loading: false
+    loading: false,
+    isDateTimePickerVisible: false
   };
 
   static navigationOptions = {
     headerRight: null
+  };
+
+  showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+
+  hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+  handleDatePicked = date => {
+    this.setState({
+      dateofbirth: date
+    });
+    this.hideDateTimePicker();
   };
 
   async handleSignUp() {
@@ -39,6 +52,7 @@ export default class SignUp extends Component {
       return;
     }
     await AsyncStorage.setItem("name", name);
+    await AsyncStorage.setItem("dateOfBirth", JSON.stringify(dateofbirth));
     this.setState({ loading: false, errors: [] });
     // DRIZZLE PARTICIPATE
     // save date of birth
@@ -58,7 +72,7 @@ export default class SignUp extends Component {
       >
         <Block padding={[0, theme.sizes.base * 2]}>
           <Text h1 bold style={styles.header}>
-            Register
+            Participate
           </Text>
           <Input
             label="Name"
@@ -67,20 +81,25 @@ export default class SignUp extends Component {
             style={[styles.input, hasErrors("name")]}
             onChangeText={text => this.setState({ name: text })}
           />
-
-          <Input
-            label="Date of Birth"
-            value={dateofbirth}
-            error={hasErrors("dateofbirth")}
-            style={[styles.input, hasErrors("dateofbirth")]}
-            onChangeText={text => this.setState({ dateofbirth: text })}
+          <Block>
+            <Block flex={false} margin={[0, 0, 10, 0]}>
+              <Text gray2>Date of Birth</Text>
+            </Block>
+            <Text h3 onPress={this.showDateTimePicker}>
+              {dateofbirth.toString().slice(0, 15)}
+            </Text>
+          </Block>
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
           />
           <Button gradient onPress={async () => await this.handleSignUp()}>
             {loading ? (
               <ActivityIndicator size="small" color="white" />
             ) : (
               <Text bold white center>
-                Register
+                Participate
               </Text>
             )}
           </Button>

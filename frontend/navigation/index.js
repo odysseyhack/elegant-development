@@ -20,7 +20,6 @@ import { theme } from "../constants";
 
 const screens = createStackNavigator(
   {
-    Funds,
     Welcome,
     ViewAccount,
     Login,
@@ -31,7 +30,8 @@ const screens = createStackNavigator(
     Product,
     NewAccount,
     Pension,
-    Achievements
+    Achievements,
+    Funds
   },
   {
     defaultNavigationOptions: {
