@@ -19,10 +19,10 @@ import { theme } from "../constants";
 
 const screens = createStackNavigator(
   {
+      Invest,
     Funds,
     Welcome,
     Login,
-    Invest,
     SignUp,
     Forgot,
     Explore,
