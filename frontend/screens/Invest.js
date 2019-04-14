@@ -1,33 +1,15 @@
 import React, { Component } from "react";
-import { StyleSheet, ScrollView, TextInput } from "react-native";
+import { StyleSheet, ScrollView, TextInput, AsyncStorage } from "react-native";
 import { InvestmentCard, Divider, Button, Block, Text } from "../components";
 import { theme } from "../constants";
 
-const funds = [
-  {
-    key: "retirement",
-    title: "Retirement",
-    atRetirement: true,
-    investment: 10
-  },
-  {
-    key: "bahamas",
-    title: "Bahamas",
-    investment: 80
-  },
-  {
-    key: "drivers_license",
-    title: "Drivers license",
-    investment: 10
-  }
-];
-
 const interest_rate = 1.07;
-const years_till_retirement = 50;
 
 class Invest extends Component {
   constructor(props) {
     super(props);
+
+    const funds = this.props.navigation.getParam("funds");
 
     let total = 0;
     const investments = {};
@@ -40,15 +22,35 @@ class Invest extends Component {
     this.state = {
       investments,
       total,
-      investmentAmount: "0"
+      investmentAmount: "0",
+      yearsTillRetirement: 1
     };
   }
   onChangeInvestment = investmentAmount => {
     this.setState({ investmentAmount });
   };
 
+  async componentDidMount() {
+    const dateOfBirth = JSON.parse(await AsyncStorage.getItem("dateOfBirth"));
+    const retirementAge = new Date(dateOfBirth);
+    retirementAge.setFullYear(retirementAge.getFullYear() + 68);
+    const yearsTillRetirement =
+      retirementAge.getFullYear() - new Date().getFullYear();
+    this.setState({
+      yearsTillRetirement
+    });
+  }
+
   onInvest = () => {
-    console.log("invest");
+    if (this.state.total !== 100) return;
+    const funds = this.props.navigation.getParam("funds");
+    const changeFunds = this.props.navigation.getParam("changeFunds");
+    const { investments, investmentAmount } = this.state;
+
+    for (const fund of funds) {
+      fund.amount += (investments[fund.key] * investmentAmount) / 100;
+    }
+    changeFunds(funds);
   };
 
   changeInvestmentPercentage = (key, value) => {
@@ -74,11 +76,12 @@ class Invest extends Component {
   getRetirementValue = value =>
     this.toCurrency(
       ((value * this.state.investmentAmount) / 100) *
-        (interest_rate ^ years_till_retirement)
+        (interest_rate ^ this.state.yearsTillRetirement)
     );
 
   render() {
     const { total, investmentAmount } = this.state;
+    const funds = this.props.navigation.getParam("funds");
     return (
       <Block>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -110,7 +113,7 @@ class Invest extends Component {
                 <InvestmentCard
                   key={fund.key}
                   investment={this.getInvestment(investment)}
-                  title={fund.title}
+                  title={fund.label}
                   sliderValue={investment}
                   onSliderChange={val =>
                     this.changeInvestmentPercentage(fund.key, val)
@@ -130,7 +133,7 @@ class Invest extends Component {
           flex={0.6}
           margin={[0, 0, 10, 0]}
         >
-          <Button disables={true} gradient onPress={this.invest}>
+          <Button disables={true} gradient onPress={this.onInvest}>
             <Text center semibold white>
               Invest
             </Text>
