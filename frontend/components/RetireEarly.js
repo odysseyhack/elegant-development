@@ -13,7 +13,7 @@ export default class RetireEarly extends Component {
                     <FirePoints points={this.props.points}/>
                 </Block>
                 <Block center margin={[20, 10, 10, 0]}>
-                    <Icon name="md-unlock" size={42}  /> 
+                    <Icon name="md-lock" size={42}  /> 
                     <Text> Retire early</Text>   
                 </Block>
             </TouchableOpacity>
