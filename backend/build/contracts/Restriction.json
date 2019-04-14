@@ -1,0 +1,104 @@
+{
+  "contractName": "Restriction",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/karimstekelenburg/Developer/Odyssey/chain/contracts/Restriction.sol\":\"Restriction\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/karimstekelenburg/Developer/Odyssey/chain/contracts/Restriction.sol\":{\"keccak256\":\"0xd3f7d230262230a748ed7d37f7f8fa526648ec97acc3266c3ed8f1620161ea6d\",\"urls\":[\"bzzr://7cfc7f8c3ea6a8927899b69fda343556e4a6d9d3de90ca37950ceda89a7f6ef9\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a72305820402da211671dd4a4f8a5f7df8628a3aa7d98ee9ff12ab232b97f69c8817daf260029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a72305820402da211671dd4a4f8a5f7df8628a3aa7d98ee9ff12ab232b97f69c8817daf260029",
+  "sourceMap": "48:23:4:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;48:23:4;;;;;;;",
+  "deployedSourceMap": "48:23:4:-;;;;;",
+  "source": "/* solium-disable */\n\npragma solidity >=0.5.0;\n\ncontract Restriction {}\n",
+  "sourcePath": "/Users/karimstekelenburg/Developer/Odyssey/chain/contracts/Restriction.sol",
+  "ast": {
+    "absolutePath": "/Users/karimstekelenburg/Developer/Odyssey/chain/contracts/Restriction.sol",
+    "exportedSymbols": {
+      "Restriction": [
+        240
+      ]
+    },
+    "id": 241,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 239,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "22:24:4"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 240,
+        "linearizedBaseContracts": [
+          240
+        ],
+        "name": "Restriction",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 241,
+        "src": "48:23:4"
+      }
+    ],
+    "src": "22:50:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/karimstekelenburg/Developer/Odyssey/chain/contracts/Restriction.sol",
+    "exportedSymbols": {
+      "Restriction": [
+        240
+      ]
+    },
+    "id": 241,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 239,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "22:24:4"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 240,
+        "linearizedBaseContracts": [
+          240
+        ],
+        "name": "Restriction",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 241,
+        "src": "48:23:4"
+      }
+    ],
+    "src": "22:50:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-04-12T22:48:28.700Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
