@@ -19,22 +19,20 @@ import moneyHigh from "../assets/icons/moneyHigh.png";
 class Pension extends Component {
   handleSave = () => {
     const { navigation } = this.props;
-    // saves budget
-
-    // Navigates to home
-    navigation.navigate("Browse");
   };
 
   render() {
-    currentSpendable = "1.512";
-    desiredSpendable = "2.200";
-    adviceAmount = "1.460";
+    const {
+      currentSpendable,
+      desiredSpendable,
+      adviceAmount
+    } = this.props.navigation.getParam("fund");
 
     return (
       <Block>
         <Block flex={false} row center space="between" style={styles.header}>
           <Text h1 bold>
-            Explore
+            Retirement
           </Text>
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -106,7 +104,7 @@ const styles = StyleSheet.create({
   },
   categories: {
     flexWrap: "wrap",
-    paddingHorizontal: theme.sizes.base * 2,
+    paddingHorizontal: theme.sizes.base * 2
   },
   footer: {
     position: "absolute",

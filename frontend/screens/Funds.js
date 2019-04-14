@@ -1,43 +1,45 @@
 import React, { Component } from "react";
 import { StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 
-import { RetireEarly, Block, Text, Divider, FundCard } from "../components";
+import {
+  Block,
+  Text,
+  Divider,
+  FundCard,
+  AddAccountButton,
+  RetireEarly
+} from "../components";
 import { theme } from "../constants";
 
-const funds = [
-  {
-    key: "retirement",
-    title: "Retirement",
-    amount: 2500,
-    progress: 10
-  },
-  {
-    key: "bahamas",
-    title: "Bahamas",
-    amount: 2500,
-    progress: 10
-  },
-  {
-    key: "drivers_license",
-    title: "Drivers license",
-    amount: 2500,
-    progress: 10
-  }
-];
-
-state = {
-  user: {
-    name: "Henk",
-    fire: false
-  }
-};
-
 class Funds extends Component {
-
-  handleRetireEarlyRequest() {
-    const { navigation } = this.props;
-    navigation.navigate('NewAccount')
-  }
+  state = {
+    funds: [
+      {
+        key: "retirement",
+        label: "Retirement",
+        amount: 9000,
+        target: 100000,
+        currentSpendable: 900,
+        desiredSpendable: 1000,
+        adviceAmount: 1200,
+        targetDate: new Date()
+      },
+      {
+        key: "bahamas",
+        label: "Bahamas",
+        amount: 9000,
+        target: 100000,
+        targetDate: new Date()
+      },
+      {
+        key: "drivers_license",
+        label: "Drivers license",
+        amount: 9000,
+        target: 100000,
+        targetDate: new Date()
+      }
+    ]
+  };
 
   render() {
     const { navigation } = this.props;
@@ -52,22 +54,65 @@ class Funds extends Component {
           </Block>
           <Divider />
 
-         
-
           <Block padding={15}>
-          <RetireEarly points="99" onPress={ () => this.handleRetireEarlyRequest()} />
-            {funds.map(fund => (
+            <RetireEarly
+              points="99"
+              // onPress={() => this.handleRetireEarlyRequest()}
+            />
+            {this.state.funds.map((fund, index) => (
               <TouchableOpacity
                 key={fund.key}
-                onPress={() => navigation.navigate("NewAccount")}
+                onPress={() => {
+                  if (fund.currentSpendable) {
+                    navigation.navigate("Pension", {
+                      fund
+                    });
+                  } else {
+                    navigation.navigate("ViewAccount", {
+                      onDateChange: date => {
+                        const fund = {
+                          ...this.state.funds[index],
+                          targetDate: date
+                        };
+
+                        const funds = [...this.state.funds];
+                        funds[index] = fund;
+
+                        this.setState({
+                          funds
+                        });
+                      },
+                      fund
+                    });
+                  }
+                }}
               >
                 <FundCard
-                  title={fund.title}
-                  progress={fund.progress}
+                  title={fund.label}
+                  progress={fund.amount / fund.target || 0}
                   amount={fund.amount}
                 />
               </TouchableOpacity>
             ))}
+            <AddAccountButton
+              onPress={() =>
+                navigation.navigate("NewAccount", {
+                  saveAccount: ({ label, target, targetDate }) => {
+                    const fund = {
+                      label,
+                      target,
+                      targetDate,
+                      amount: 0,
+                      key: label
+                    };
+
+                    this.setState({
+                      funds: [...this.state.funds, fund]
+                    });
+                  }
+                })
+              }
+            />
           </Block>
         </ScrollView>
       </Block>

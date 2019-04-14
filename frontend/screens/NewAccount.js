@@ -35,7 +35,13 @@ class NewAccount extends Component {
 
     this.setState({ loading: true });
     if (label !== "" && target !== "" && targetDate !== "") {
-      // Create new Account
+      const saveAccount = this.props.navigation.getParam("saveAccount");
+      saveAccount({
+        label,
+        target,
+        targetDate
+      });
+      this.props.navigation.goBack();
     } else {
       // TODO: handle error
       this.setState({ loading: false });

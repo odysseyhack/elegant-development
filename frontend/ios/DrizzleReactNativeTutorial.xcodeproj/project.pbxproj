@@ -61,6 +61,7 @@
 		F3E91D629F4442629302A618 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CB420908EB4F05846A6080 /* libBVLinearGradient.a */; };
 		D0BE356E4A374C2EBCBCC9FA /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550308571997495BBBDE4B4D /* libRNGestureHandler.a */; };
 		28AE2E664CC44C2BA2BC1330 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA8F0E49F834FBCB383DAA4 /* libRNGestureHandler-tvOS.a */; };
+		994C9D14E58C4697AA4621C6 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 195FCFF9962B4624ABEF19EA /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +410,7 @@
 		D4775643F2F645AF99EA0850 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		550308571997495BBBDE4B4D /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		FEA8F0E49F834FBCB383DAA4 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		195FCFF9962B4624ABEF19EA /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-ionicons/fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -721,6 +723,7 @@
 				4CACFC3036994A76A3135F6C /* Octicons.ttf */,
 				A20565F85A314D05948A8224 /* SimpleLineIcons.ttf */,
 				61AF047B972B47A49CCFF58B /* Zocial.ttf */,
+				195FCFF9962B4624ABEF19EA /* Ionicons.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1205,6 +1208,7 @@
 				1CD0E146899F4CDEBE4F102B /* Octicons.ttf in Resources */,
 				577E1E44871D45BBAC7B6159 /* SimpleLineIcons.ttf in Resources */,
 				B8A2A2271F9F40A0BBF7EBF0 /* Zocial.ttf in Resources */,
+				994C9D14E58C4697AA4621C6 /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

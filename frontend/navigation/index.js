@@ -13,6 +13,7 @@ import NewAccount from "../screens/NewAccount";
 import Invest from "../screens/Invest";
 import Pension from "../screens/Pension";
 import Achievements from "../screens/Achievements";
+import ViewAccount from "../screens/ViewAccount";
 import { HeaderScore } from "../components";
 
 import { theme } from "../constants";
@@ -21,6 +22,7 @@ const screens = createStackNavigator(
   {
     Funds,
     Welcome,
+    ViewAccount,
     Login,
     Invest,
     SignUp,
@@ -41,7 +43,7 @@ const screens = createStackNavigator(
       },
       headerBackImage: <Image source={require("../assets/icons/back.png")} />,
       headerBackTitle: null,
-      headerRight: <HeaderScore points={5} level={1} />,
+      headerRight: <HeaderScore points={21} level={3} />,
       headerLeftContainerStyle: {
         alignItems: "center",
         marginLeft: theme.sizes.base * 2,
