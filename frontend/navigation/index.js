@@ -21,8 +21,8 @@ import { theme } from "../constants";
 const screens = createStackNavigator(
   {
     Funds,
-    ViewAccount,
     Welcome,
+    ViewAccount,
     Login,
     Invest,
     SignUp,
@@ -43,7 +43,7 @@ const screens = createStackNavigator(
       },
       headerBackImage: <Image source={require("../assets/icons/back.png")} />,
       headerBackTitle: null,
-      headerRight: <HeaderScore points={5} level={1} />,
+      headerRight: <HeaderScore points={21} level={3} />,
       headerLeftContainerStyle: {
         alignItems: "center",
         marginLeft: theme.sizes.base * 2,

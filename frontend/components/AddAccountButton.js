@@ -20,6 +20,8 @@ export const styles = StyleSheet.create({
   card: {
     borderStyle: "dashed",
     borderWidth: 2,
-    borderColor: theme.colors.secondary
+    borderColor: theme.colors.secondary,
+    opacity: 0.5,
+    padding: theme.sizes.base / 2
   }
 });

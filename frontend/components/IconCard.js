@@ -9,26 +9,21 @@ import { theme } from "../constants";
 export default class IconCard extends Component {
   render() {
     return (
-      <TouchableOpacity
-        key={this.props.title}
-      // onPress={() => navigation.navigate("Explore", { category })}
-      >
-        <Card center middle shadow style={styles.category}>
-          <Badge margin={[0, 0, 0]} size={50}>
-            {this.props.locked ? (
-              <Image source={this.props.image} style={{ opacity: 0.85 }} />
-            ) : (
-                <Image source={this.props.image} />
-              )}
-          </Badge>
-          <Text medium height={20}>
-            {this.props.title}
-          </Text>
-          <Text gray caption>
-            {this.props.subtitle}
-          </Text>
-        </Card>
-      </TouchableOpacity>
+      <Card center middle shadow style={styles.category}>
+        <Badge margin={[0, 0, 0]} size={50}>
+          {this.props.locked ? (
+            <Image source={this.props.image} style={{ opacity: 0.85 }} />
+          ) : (
+            <Image source={this.props.image} />
+          )}
+        </Badge>
+        <Text medium height={20}>
+          {this.props.title}
+        </Text>
+        <Text gray caption>
+          {this.props.subtitle}
+        </Text>
+      </Card>
     );
   }
 }

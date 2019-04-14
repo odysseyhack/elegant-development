@@ -8,7 +8,7 @@ import {
   AsyncStorage
 } from "react-native";
 
-import { Button, Block, Input, Text, AddAccountButton } from "../components";
+import { Button, Block, Input, Text } from "../components";
 import { theme } from "../constants";
 
 export default class SignUp extends Component {
@@ -31,23 +31,19 @@ export default class SignUp extends Component {
     Keyboard.dismiss();
     this.setState({ loading: true });
 
-<<<<<<< HEAD
     // check with backend API or with some static data
     if (!name) errors.push("name");
     if (!dateofbirth) errors.push("dateofbirth");
     if (errors.length) {
       this.setState({ errors, loading: false });
       return;
-=======
-        navigation.navigate('Funds')
->>>>>>> master
     }
     await AsyncStorage.setItem("name", name);
     this.setState({ loading: false, errors: [] });
     // DRIZZLE PARTICIPATE
     // save date of birth
 
-    navigation.navigate("Browse");
+    navigation.navigate("Funds");
   }
 
   render() {
@@ -66,13 +62,11 @@ export default class SignUp extends Component {
           </Text>
           <Input
             label="Name"
+            value={name}
             error={hasErrors("name")}
             style={[styles.input, hasErrors("name")]}
             onChangeText={text => this.setState({ name: text })}
           />
-          <Block>
-            <AddAccountButton onPress={() => console.log("aahs")} />
-          </Block>
 
           <Input
             label="Date of Birth"
