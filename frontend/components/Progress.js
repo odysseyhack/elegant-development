@@ -21,12 +21,12 @@ class Progress extends Component {
         <LinearGradient
           end={{ x: 1, y: 0 }}
           colors={[startColor, endColor]}
-          style={[styles.overlay, { flex: 0.5 }]}
+          style={[styles.overlay, { flex: value }]}
         >
           <LinearGradient
             end={{ x: 1, y: 0 }}
             colors={[startColor, endColor]}
-            style={[styles.active, { flex: 0.5 }]}
+            style={[styles.active, { flex: value }]}
           />
         </LinearGradient>
       </Block>

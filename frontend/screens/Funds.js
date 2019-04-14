@@ -4,6 +4,7 @@ import { StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import {
   Block,
   Text,
+  Button,
   Divider,
   FundCard,
   AddAccountButton,
@@ -17,26 +18,30 @@ class Funds extends Component {
       {
         key: "retirement",
         label: "Retirement",
-        amount: 9000,
-        target: 100000,
+        amount: 120000,
+        target: 2000000,
         currentSpendable: 900,
         desiredSpendable: 1000,
         adviceAmount: 1200,
-        targetDate: new Date()
+        targetDate: new Date(),
+        investment: 10,
+        atRetirement: true
       },
       {
         key: "bahamas",
         label: "Bahamas",
-        amount: 9000,
-        target: 100000,
-        targetDate: new Date()
+        amount: 1500,
+        target: 4000,
+        targetDate: new Date(),
+        investment: 80
       },
       {
         key: "drivers_license",
         label: "Drivers license",
-        amount: 9000,
-        target: 100000,
-        targetDate: new Date()
+        amount: 100,
+        target: 1450,
+        targetDate: new Date(),
+        investment: 10
       }
     ]
   };
@@ -52,9 +57,22 @@ class Funds extends Component {
               Funds
             </Text>
           </Block>
+
           <Divider />
 
           <Block padding={15}>
+            <Button
+              gradient
+              onPress={() =>
+                this.props.navigation.navigate("Invest", {
+                  funds: this.state.funds
+                })
+              }
+            >
+              <Text bold white center>
+                Invest
+              </Text>
+            </Button>
             <RetireEarly
               points="99"
               // onPress={() => this.handleRetireEarlyRequest()}
@@ -128,6 +146,7 @@ const styles = StyleSheet.create({
   },
   inputs: {
     marginTop: theme.sizes.base * 0.7,
-    paddingHorizontal: theme.sizes.base * 2
+    paddingHorizontal: theme.sizes.base * 2,
+    marginBottom: theme.sizes.base * 1
   }
 });

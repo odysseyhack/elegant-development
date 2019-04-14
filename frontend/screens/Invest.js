@@ -3,31 +3,14 @@ import { StyleSheet, ScrollView, TextInput } from "react-native";
 import { InvestmentCard, Divider, Button, Block, Text } from "../components";
 import { theme } from "../constants";
 
-const funds = [
-  {
-    key: "retirement",
-    title: "Retirement",
-    atRetirement: true,
-    investment: 10
-  },
-  {
-    key: "bahamas",
-    title: "Bahamas",
-    investment: 80
-  },
-  {
-    key: "drivers_license",
-    title: "Drivers license",
-    investment: 10
-  }
-];
-
 const interest_rate = 1.07;
 const years_till_retirement = 50;
 
 class Invest extends Component {
   constructor(props) {
     super(props);
+
+    const funds = this.props.navigation.getParam("funds");
 
     let total = 0;
     const investments = {};
@@ -79,6 +62,7 @@ class Invest extends Component {
 
   render() {
     const { total, investmentAmount } = this.state;
+    const funds = this.props.navigation.getParam("funds");
     return (
       <Block>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -110,7 +94,7 @@ class Invest extends Component {
                 <InvestmentCard
                   key={fund.key}
                   investment={this.getInvestment(investment)}
-                  title={fund.title}
+                  title={fund.label}
                   sliderValue={investment}
                   onSliderChange={val =>
                     this.changeInvestmentPercentage(fund.key, val)
