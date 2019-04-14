@@ -13,6 +13,7 @@ import NewAccount from "../screens/NewAccount";
 import Invest from "../screens/Invest";
 import Pension from "../screens/Pension";
 import Achievements from "../screens/Achievements";
+import ViewAccount from "../screens/ViewAccount";
 import { HeaderScore } from "../components";
 
 import { theme } from "../constants";
@@ -20,6 +21,7 @@ import { theme } from "../constants";
 const screens = createStackNavigator(
   {
     Funds,
+    ViewAccount,
     Welcome,
     Login,
     Invest,
