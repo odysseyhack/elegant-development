@@ -6,15 +6,11 @@ import Icon from 'react-native-ionicons'
 
 export default class AddAccountButton extends Component {
 
-  renderSearch() {
-    "wow zieke functie call"
-  }
-
   render() {
     return (
       <Block>
         <Card style={[flex=1, styles.card]}>
-          <TouchableOpacity onPress={() => this.renderSearch()}>
+          <TouchableOpacity onPress={this.props.onPress}>
             <Icon style={styles.icon} name="add" size={74}  />
           </TouchableOpacity>
         </Card>
