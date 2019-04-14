@@ -15,6 +15,7 @@ import InvestmentCard from "./InvestmentCard";
 import SavingsGoal from "./SavingsGoal";
 import IconCard from "./IconCard";
 import AdviceBlock from "./AdviceBlock";
+import AdviceCard from "./AdviceCard";
 import FundsStatus from "./FundsStatus";
 import FundCard from "./FundCard";
 import EditField from "./EditField";
@@ -43,5 +44,6 @@ export {
   IconCard,
   AdviceBlock,
   EditField,
-  RetireEarly
+  RetireEarly,
+  AdviceCard
 };

@@ -25,9 +25,9 @@ class Welcome extends Component {
   };
 
   async componentDidMount() {
-    // if ((await AsyncStorage.getItem("dateOfBirth")) !== null) {
-    //   this.props.navigation.replace("Funds");
-    // }
+    if ((await AsyncStorage.getItem("dateOfBirth")) !== null) {
+      this.props.navigation.replace("Funds");
+    }
   }
 
   renderIllustrations() {

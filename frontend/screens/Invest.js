@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { StyleSheet, ScrollView, TextInput, AsyncStorage } from "react-native";
-import { InvestmentCard, Divider, Button, Block, Text } from "../components";
+import {
+  InvestmentCard,
+  Divider,
+  Button,
+  Block,
+  Text,
+  AdviceCard
+} from "../components";
 import { theme } from "../constants";
 
 const interest_rate = 1.07;
@@ -51,6 +58,7 @@ class Invest extends Component {
       fund.amount += (investments[fund.key] * investmentAmount) / 100;
     }
     changeFunds(funds);
+    this.props.navigation.goBack();
   };
 
   changeInvestmentPercentage = (key, value) => {
@@ -124,10 +132,20 @@ class Invest extends Component {
                 />
               );
             })}
+
+            {investmentAmount !== "0" && investmentAmount !== "" && (
+              <AdviceCard
+                label={funds[1].label}
+                atRetirement={this.getRetirementValue(funds[1].investment)}
+                investment={this.getInvestment(funds[1].investment)}
+                onSwitch={this.onInvest}
+                onKeep={this.onInvest}
+              />
+            )}
           </Block>
         </ScrollView>
 
-        <Block
+        {/* <Block
           padding={[10, theme.sizes.base * 2]}
           bottom
           flex={0.6}
@@ -138,7 +156,7 @@ class Invest extends Component {
               Invest
             </Text>
           </Button>
-        </Block>
+        </Block> */}
       </Block>
     );
   }
