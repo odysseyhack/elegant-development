@@ -31,12 +31,16 @@ export default class SignUp extends Component {
     Keyboard.dismiss();
     this.setState({ loading: true });
 
+<<<<<<< HEAD
     // check with backend API or with some static data
     if (!name) errors.push("name");
     if (!dateofbirth) errors.push("dateofbirth");
     if (errors.length) {
       this.setState({ errors, loading: false });
       return;
+=======
+        navigation.navigate('Funds')
+>>>>>>> master
     }
     await AsyncStorage.setItem("name", name);
     this.setState({ loading: false, errors: [] });
